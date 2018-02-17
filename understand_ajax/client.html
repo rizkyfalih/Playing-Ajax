@@ -1,0 +1,49 @@
+<html>
+
+    <head>
+        <title>First AJAX Example</title>
+        <script type="text/javascript">
+
+            function updateText(){
+                
+                //=====================================================================================
+                // Example of XMLHttoRequest (Object can be used to request data from a web server.)
+                /*
+                // Get Method in Ajax using Javasricpt
+                var current_text = document.getElementById('user_text').value;
+                var http = new XMLHttpRequest();
+                http.onreadystatechange = function() {
+                    if( http.readyState == 4 && http.status == 200){
+                        var response = http.responseText;
+                        document.getElementById('server_response').value = response;
+                    }
+                };
+                http.open( "GET", "http://localhost/Playing-Ajax/understand_ajax/server.php?user_text="+current_text, true);
+                http.send();
+                */
+
+                // Post Method in Ajax using Javascript
+                var current_text = document.getElementById('user_text').value;
+                var http = new XMLHttpRequest();
+                http.onreadystatechange = function() {
+                    if( http.readyState == 4 && http.status == 200){
+                        var response = http.responseText;
+                        document.getElementById('server_response').value = response;
+                    }
+                };
+                http.open( "POST", "http://localhost/Playing-Ajax/understand_ajax/server.php", true);
+                http.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                http.send("user_text="+current_text);
+
+                //=====================================================================================
+            }
+
+        </script>
+    </head>
+
+    <body>
+        <div>Input Text : <input type="text" id="user_text" name="user_text" onkeyup="updateText();" /></div><br/>
+        <div>Server Resp. : <input type="text" id="server_response" name="server_response" readonly /></div>
+    </body>
+
+</html>
