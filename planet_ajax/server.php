@@ -16,7 +16,7 @@
         array('name' => 'Jupiter', 'order_no' => '5', 'no_of_days_in_year' => '4332'),
         array('name' => 'Saturn', 'order_no' => '6', 'no_of_days_in_year' => '10755'),
         array('name' => 'Uranus', 'order_no' => '7', 'no_of_days_in_year' => '30687'),
-        array('name' => 'Neptunus', 'order_no' => '8', 'no_of_days_in_year' => '60190'),
+        array('name' => 'Neptunus', 'order_no' => '8', 'no_of_days_in_year' => '60190')
     );
 
     for ($count = 0; $count < count($planet_details); $count++){
@@ -26,6 +26,6 @@
     }
 
     // Return Response as JSON
-    echo json_decode($result);
+    echo json_encode($result);
 
 ?>
