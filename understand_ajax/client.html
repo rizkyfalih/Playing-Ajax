@@ -2,6 +2,7 @@
 
     <head>
         <title>First AJAX Example</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
         <script type="text/javascript">
 
             function updateText(){
@@ -21,7 +22,7 @@
                 http.open( "GET", "http://localhost/Playing-Ajax/understand_ajax/server.php?user_text="+current_text, true);
                 http.send();
                 */
-
+                /*
                 // Post Method in Ajax using Javascript
                 var current_text = document.getElementById('user_text').value;
                 var http = new XMLHttpRequest();
@@ -34,8 +35,25 @@
                 http.open( "POST", "http://localhost/Playing-Ajax/understand_ajax/server.php", true);
                 http.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 http.send("user_text="+current_text);
+                */
 
                 //=====================================================================================
+                /*
+                // GET Method in ajax using Jquery
+                var current_text = $('#user_text').val();
+                $.get( "http://localhost/Playing-Ajax/understand_ajax/server.php", "user_text="+current_text,
+                    function(response, status, http){
+                        $('#server_response').val(response);
+                    }, "text"
+                */
+                // POST Method in ajax using Jquery
+                var current_text = $('#user_text').val();
+                $.post( "http://localhost/Playing-Ajax/understand_ajax/server.php", "user_text="+current_text,
+                    function(response, status, http){
+                        $('#server_response').val(response);
+                    }, "text"   
+                 );
+
             }
 
         </script>
